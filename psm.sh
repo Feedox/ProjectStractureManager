@@ -41,9 +41,9 @@ elif [ $cmd = resolve ]
 then
 	echo '> psm:resolve: '
 
-elif [ $cmd = update-psn ]
+elif [ $cmd = update-psm ]
 then
-	echo '> psm:update-psn: '
+	echo '> psm:update-psm: '
 
 	curl -sL https://github.com/Livshitz/ProjectStractureManager/raw/master/psm.sh -o psm.sh && chmod +x psm.sh
 
