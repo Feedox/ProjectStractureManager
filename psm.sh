@@ -1,21 +1,25 @@
 #!/bin/bash
 
 # psm
-# version: 0.1
+# version: 0.2
 
-cmd=$1
-cmd=${cmd:-default}
-repoUrl=git@github.com:Livshitz/SuperWebApp.git
+cmd=${1:-default}
+repo=${2:-https://github.com/Livshitz/SuperWebApp.git}
+
+. .psmconfig
+repoUrl=${repoUrl:-$repo}
 
 if [ $cmd = init ] 
 then 
-	echo '> psm:init: '
+	echo '> psm:init: ' $repoUrl
 
 	git init . 
 	mv .git .gitpsm
 	git --git-dir=.gitpsm remote add origin $repoUrl
 	git --git-dir=.gitpsm fetch origin
 	git --git-dir=.gitpsm checkout -f -b master --track origin/master # origin/master is clone's default
+
+	echo 'repoUrl='$repoUrl > .psmconfig
 
 elif [ $cmd = update ]
 then
@@ -38,4 +42,6 @@ then
 
 else 
 	echo '> psm:default: '
+	echo '> psm:test: ' $repoUrl
+	
 fi
