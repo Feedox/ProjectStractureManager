@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # psm
-# version: 0.4
+# version: 0.5
 
 cmd=${1:-default}
 repo=${2:-https://github.com/Livshitz/SuperWebApp.git}
+timestamp=$(date +%s)
 
 . .psmconfig
 repoUrl=${repoUrl:-$repo}
@@ -45,7 +46,8 @@ elif [ $cmd = update-psm ]
 then
 	echo '> psm:update-psm: '
 
-	curl -sL https://github.com/Livshitz/ProjectStractureManager/raw/master/psm.sh -o psm.sh && chmod +x psm.sh
+	rm -f psm.sh
+	curl -sL 'https://github.com/Livshitz/ProjectStractureManager/raw/master/psm.sh?'$timestamp -o psm.sh && chmod +x psm.sh
 
 else 
 	echo '> psm:default: '
