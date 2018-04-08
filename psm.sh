@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # psm
-# version: 0.5
+# version: 0.6
 
 cmd=${1:-default}
 repo=${2:-https://github.com/Livshitz/SuperWebApp.git}
@@ -46,7 +46,7 @@ elif [ $cmd = update-psm ]
 then
 	echo '> psm:update-psm: '
 
-	rm -f psm.sh
+	# rm -f psm.sh
 	curl -H 'Cache-Control: no-cache' -sL 'https://github.com/Livshitz/ProjectStractureManager/raw/master/psm.sh?'$timestamp -o psm.sh && chmod +x psm.sh
 
 else 
