@@ -47,7 +47,7 @@ then
 	echo '> psm:update-psm: '
 
 	rm -f psm.sh
-	curl -sL 'https://github.com/Livshitz/ProjectStractureManager/raw/master/psm.sh?'$timestamp -o psm.sh && chmod +x psm.sh
+	curl -H 'Cache-Control: no-cache' -sL 'https://github.com/Livshitz/ProjectStractureManager/raw/master/psm.sh?'$timestamp -o psm.sh && chmod +x psm.sh
 
 else 
 	echo '> psm:default: '
