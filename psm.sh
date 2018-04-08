@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # psm
-# version: 0.2
+# version: 0.3
 
 cmd=${1:-default}
 repo=${2:-https://github.com/Livshitz/SuperWebApp.git}
