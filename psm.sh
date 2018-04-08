@@ -34,7 +34,8 @@ then
 	git --git-dir=.gitpsm merge old-master
 
 	git --git-dir=.gitpsm mergetool --tool=opendiff --no-prompt
-	# git --git-dir=.gitpsm branch -d old-master
+	git --git-dir=.gitpsm commit -m '.'
+	git --git-dir=.gitpsm branch -d old-master
 
 elif [ $cmd = resolve ]
 then
