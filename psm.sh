@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# psm
+# version: 0.1
+
 cmd=$1
 cmd=${cmd:-default}
 repoUrl=git@github.com:Livshitz/SuperWebApp.git
