@@ -19,6 +19,7 @@ then
 	git --git-dir=.gitpsm remote add origin $repoUrl
 	git --git-dir=.gitpsm fetch origin
 	git --git-dir=.gitpsm checkout -f -b master --track origin/master # origin/master is clone's default
+	git --git-dir=.gitpsm config --global mergetool.keepBackup false
 
 	echo 'repoUrl='$repoUrl > .psmconfig
 
