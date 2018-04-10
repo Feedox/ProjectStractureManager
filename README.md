@@ -5,7 +5,7 @@
 ---
 
 ## Install:
-#### MacOS/Linus:
+#### MacOS/Linux:
 ``` curl -sL https://github.com/Livshitz/ProjectStractureManager/raw/master/psm.sh -o psm.sh &&  chmod +x psm.sh ```
 
 #### Windows:
