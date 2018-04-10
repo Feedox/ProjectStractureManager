@@ -9,7 +9,7 @@
 ``` curl -sL https://github.com/Livshitz/ProjectStractureManager/raw/master/psm.sh -o psm.sh &&  chmod +x psm.sh ```
 
 #### Windows:
-[TBD]
+``` [TBD] ```
 
 ## Init:
 ``` ./psm.sh init {project infra stracture git repo url OR leave empty for default=https://github.com/Livshitz/SuperWebApp.git} ```
