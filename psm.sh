@@ -33,7 +33,7 @@ then
 	git --git-dir=.gitpsm fetch
 	git --git-dir=.gitpsm branch old-master
 	git --git-dir=.gitpsm reset --hard origin/master
-	git --git-dir=.gitpsm merge old-master
+	git --git-dir=.gitpsm merge old-master -m "."
 
 	git --git-dir=.gitpsm mergetool --tool=opendiff --no-prompt
 	git --git-dir=.gitpsm commit -m '.'
