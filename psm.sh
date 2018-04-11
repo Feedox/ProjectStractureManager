@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # psm
-# version: 0.10
+# version: 0.11
 
 cmd=${1:-default}
 repo=${2:-https://github.com/Livshitz/SuperWebApp.git}
@@ -44,9 +44,11 @@ then
 	git --git-dir=.gitpsm commit -m '.'
 	git --git-dir=.gitpsm branch -d old-master
 
-elif [ $cmd = resolve ]
+elif [ $cmd = reset ]
 then
-	echo '> psm:resolve: '
+	echo '> psm:reset: '
+	git --git-dir=.gitpsm pull -f
+	git --git-dir=.gitpsm reset --hard origin/master
 
 elif [ $cmd = update-psm ]
 then
