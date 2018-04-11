@@ -14,8 +14,13 @@ if [ $cmd = init ]
 then 
 	echo '> psm:init: ' $repoUrl
 
-	git init . 
+	mkdir temp_psm
+	cd temp_psm
+	git init .
 	mv .git .gitpsm
+	find . -maxdepth 1 -exec mv {} .. \;
+	cd ../
+	rm -r temp_psm
 	git --git-dir=.gitpsm remote add origin $repoUrl
 	git --git-dir=.gitpsm fetch origin
 	git --git-dir=.gitpsm checkout -f -b master --track origin/master # origin/master is clone's default
