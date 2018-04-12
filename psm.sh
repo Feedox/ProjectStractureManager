@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # psm
-# version: 0.11
+# version: 0.12
 
 cmd=${1:-default}
 repo=${2:-https://github.com/Livshitz/SuperWebApp.git}
@@ -32,6 +32,14 @@ elif [ $cmd = update ]
 then
 	echo '> psm:update: '
 
+	echo "Getting ready for update. Did you commit all changes in your repo? "
+	select yn in "Yes, continue" "No, abort"; do
+		case $yn in
+			"Yes, continue" ) break;;
+			"No, abort" ) exit;;
+		esac
+	done
+
 	git --git-dir=.gitpsm add .
 	git --git-dir=.gitpsm commit -m "."
 
@@ -40,10 +48,18 @@ then
 	git --git-dir=.gitpsm reset --hard origin/master
 	git --git-dir=.gitpsm merge old-master -m "."
 
+	echo '> psm:update: Attempting to merge '
 	git --git-dir=.gitpsm mergetool --tool=opendiff --no-prompt
-	git --git-dir=.gitpsm commit -m '.'
-	git --git-dir=.gitpsm branch -d old-master
-
+	
+	echo "Please check your repo and commit changes. Did you commit or revered? "
+	select yn in "Commited, continue" "Reverted, unroll changes and sync side repo state"; do
+		case $yn in
+			"Commited, continue" ) git --git-dir=.gitpsm commit -m '.'; git --git-dir=.gitpsm branch -d old-master; break;;
+			"Reverted, unroll changes and sync side repo state" ) exit;;
+		esac
+	done
+	
+	
 elif [ $cmd = reset ]
 then
 	echo '> psm:reset: '
